@@ -23,6 +23,11 @@ const product = db.define('product', {
     description : {
         type: Sequelize.TEXT,
         allowNull: false
+    },
+
+    category: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
 })
 
