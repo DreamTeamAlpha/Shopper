@@ -1,6 +1,6 @@
 const path = require('path')
 const express = require('express')
-const morgan = require('morgan')
+const volleyball = require('volleyball')
 const bodyParser = require('body-parser')
 const compression = require('compression')
 const session = require('express-session')
@@ -32,7 +32,7 @@ passport.deserializeUser((id, done) =>
 
 const createApp = () => {
   // logging middleware
-  app.use(morgan('dev'))
+  app.use(volleyball)
 
   // body parsing middleware
   app.use(bodyParser.json())
