@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
+import {fetchProducts} from '../store'
 
 class Products extends Component {
   constructor (props) {
@@ -7,17 +8,35 @@ class Products extends Component {
   }
 
   componentDidMount(){
-    console.log("WORKING COMPONENT")
+    console.log('WHEREEEEE')
+    this.props.callFetchProducts()
   }
 
-
   render() {
+    console.log(this.props.products);
     return(
       <div>
-        <h1>WOWWWW</h1>
+       <ul>
+        {this.props.products.map((product) => {
+          return <li key={product.id}>{product.name}</li>
+        })}
+       </ul>
       </div>
     )
   }
 }
 
-export default Products;
+const mapStateToProps= (storeState) => {
+  return {
+    products: storeState.products
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  callFetchProducts() {
+    return dispatch(fetchProducts())
+  }
+})
+
+const productWrapper = connect(mapStateToProps, mapDispatchToProps)(Products)
+export default productWrapper;
