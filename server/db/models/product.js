@@ -13,6 +13,13 @@ const product = db.define('product', {
         allowNull: false
     },
 
+    image: {
+        type: Sequelize.STRING,
+        validate : {
+            isURL: true
+        }
+    },
+
     description : {
         type: Sequelize.TEXT,
         allowNull: false
