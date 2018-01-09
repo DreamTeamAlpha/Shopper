@@ -8,7 +8,7 @@ const GET_PRODUCTS = 'GET_PRODUCTS'
 /**
  * ACTION CREATORS
  */
-const getProducts = products => ({type: GET_PRODUCTS, products})
+export const getProducts = products => ({type: GET_PRODUCTS, products})
 
 /**
  * REDUCER
