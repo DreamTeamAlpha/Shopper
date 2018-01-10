@@ -5,10 +5,12 @@ import axios from 'axios'
  */
 const GET_PRODUCTS = 'GET_PRODUCTS'
 
+
 /**
  * ACTION CREATORS
  */
 const getProducts = products => ({type: GET_PRODUCTS, products})
+
 
 /**
  * REDUCER
@@ -31,3 +33,11 @@ export const fetchProducts = () =>
       .then(res =>
         dispatch(getProducts(res.data)))
       .catch(err => console.log(err))
+
+export const createProduct = () => 
+  dispatch => 
+    axios.post('/api/products')
+      .then(axios.get('/api/products')
+      .then(res =>
+        dispatch(getProducts(res.data)))
+      .catch(err => console.log(err)))

@@ -15,7 +15,7 @@ const Main = (props) => {
 
   return (
     <div>
-      <h1>BOILERMAKER</h1>
+      <h1>PIÑATA PARTY</h1>
       <nav>
         {
           isLoggedIn
@@ -29,6 +29,7 @@ const Main = (props) => {
               <Link to="/login">Login</Link>
               <Link to="/signup">Sign Up</Link>
               <Link to="/products">Products</Link>
+              <Link to="/addProduct">Add Product</Link>
             </div>
         }
       </nav>
