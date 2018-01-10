@@ -7,12 +7,28 @@ class AddProduct extends Component {
         super(props);
 
         this.state ={
-            name: "",
-            price: 0,
-            description: "",
-            image: "",
-            category: ""
+            
         }
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        this.setState({
+            [name] : value
+        })
+
+        console.log(this.state)
+
+    }
+
+    handleSubmit(){
+
     }
 
 
@@ -20,26 +36,27 @@ class AddProduct extends Component {
         return(
             <div>
             <h1> Add a Product </h1>
-            <form>
+            <form name="addProdForm" onSubmit = {this.handleSubmit}>
                 Product Name
-                <br />
-                <input id="prodName"></input>
-                <br />
+                    <br />
+                <input name="prodName" value = {this.state.name} onChange = {this.handleInputChange}/>
+                    <br />
                 Price
-                <br />
-                <input id="price"></input>
-                <br />
+                    <br />
+                <input name="price" value = {this.state.price} onChange = {this.handleInputChange}/>
+                    <br />
                 Description
-                <br />
-                <input id="description"></input>
-                <br />
+                    <br />
+                <input name="description" value = {this.state.description} onChange = {this.handleInputChange}/>
+                    <br />
                 Image URL
-                <br />
-                <input id="image"></input>
-                <br />
+                    <br />
+                <input name="image" value = {this.state.image} onChange = {this.handleInputChange}/>
+                    <br />
                 Category
-                <br />
-                <input id="category"></input>
+                    <br />
+                <input name="category" value = {this.state.category} onChange = {this.handleInputChange}/>
+                <input type="submit" value="submit"/>
             </form>
             </div>
         )
