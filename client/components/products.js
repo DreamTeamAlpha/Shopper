@@ -16,7 +16,10 @@ class Products extends Component {
       <div>
        <ul>
         {this.props.products.map((product) => {
-          return <li key={product.id}>{product.name}</li>
+          return <li key={product.id}>{product.name} 
+          <br/> 
+          {product.price}</li>
+                 
         })}
        </ul>
       </div>
