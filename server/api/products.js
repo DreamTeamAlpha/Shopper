@@ -24,7 +24,7 @@ router.get('/:id', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     product.create(req.body)
-    .then(res.sendStatus(201))
+    .then(() => res.sendStatus(201))
     .catch(next);
 })
 
@@ -34,7 +34,7 @@ router.put('/:id', (req, res, next) => {
             id: req.params.id
         }
     })
-    .then(res.sendStatus(202))
+    .then(() => res.sendStatus(202))
     .catch(next);
 })
 

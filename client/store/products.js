@@ -37,7 +37,7 @@ export const fetchProducts = () =>
 export const createProduct = () => 
   dispatch => 
     axios.post('/api/products')
-      .then(axios.get('/api/products')
+      .then(() => axios.get('/api/products'))
       .then(res =>
         dispatch(getProducts(res.data)))
-      .catch(err => console.log(err)))
+      .catch(err => console.log(err))
