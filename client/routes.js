@@ -20,6 +20,7 @@ class Routes extends Component {
     return (
       <Router history={history}>
         <Main>
+          {/* OB/SG: this <Switch ...> will be Main's children */}
           <Switch>
             {/* Routes placed here are available to all visitors */}
             <Route path="/login" component={Login} />

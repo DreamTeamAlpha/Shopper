@@ -2,6 +2,8 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 
 
+// OB/SG: address linter issues
+// OB/SG: consider validations (not urgent)
 const product = db.define('product', {
     name : {
         type: Sequelize.STRING,

@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
+// OB/SG: unnecessary dependency
 import {fetchProducts, createProduct} from '../store'
 
 class AddProduct extends Component {

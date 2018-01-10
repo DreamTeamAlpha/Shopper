@@ -10,7 +10,9 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
+// OB/SG: keep indentation consistent
 router.get('/:id', (req, res, next) => {
+    // OB/SG: lowercase p product is against the idiom, whic uppercase for classes / models
     product.findOne({
         where: {
           id: req.params.id
@@ -24,6 +26,7 @@ router.get('/:id', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     product.create(req.body)
+    // OB/SG: then should take a callback
     .then(res.sendStatus(201))
     .catch(next);
 })
@@ -34,7 +37,8 @@ router.put('/:id', (req, res, next) => {
             id: req.params.id
         }
     })
-    .then(res.sendStatus(202))
+    // OB/SG: then should take a callback
+    .then(res.sendStatus(202)) // OB/SG: probably should be 204 status
     .catch(next);
 })
 

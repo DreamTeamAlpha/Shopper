@@ -11,6 +11,7 @@ class Products extends Component {
     this.props.callFetchProducts()
   }
 
+  // OB/JS: sacrifice something to your angry linter
   render() {
     return(
       <div>

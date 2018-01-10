@@ -10,6 +10,8 @@ import {logout} from '../store'
  *  else common to our entire app. The 'picture' inside the frame is the space
  *  rendered out by the component's `children`.
  */
+
+// OB/SG: `children` in react are the things passed to a component when it is rendered
 const Main = (props) => {
   const {children, handleClick, isLoggedIn} = props
 
