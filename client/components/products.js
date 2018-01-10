@@ -8,12 +8,10 @@ class Products extends Component {
   }
 
   componentDidMount(){
-    console.log('WHEREEEEE')
     this.props.callFetchProducts()
   }
 
   render() {
-    console.log(this.props.products);
     return(
       <div>
        <ul>
