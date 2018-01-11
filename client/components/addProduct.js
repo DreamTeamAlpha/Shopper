@@ -11,10 +11,10 @@ class AddProduct extends Component {
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleInputChange(event) {
+
+handleInputChange(event) {
         const target = event.target;
         const value = target.value;
         const name = target.name;
@@ -22,40 +22,34 @@ class AddProduct extends Component {
         this.setState({
             [name] : value
         })
-
-        console.log(this.state)
-
-    }
-
-    handleSubmit(){
-
     }
 
 
     render() {
+
         return(
             <div>
             <h1> Add a Product </h1>
-            <form name="addProdForm" onSubmit = {this.handleSubmit}>
+            <form name="addProdForm" onSubmit = {() => this.props.handleSubmit(this.state)}>
                 Product Name
                     <br />
-                <input name="prodName" value = {this.state.name} onChange = {this.handleInputChange}/>
+                <input name="name"onChange = {this.handleInputChange}/>
                     <br />
                 Price
                     <br />
-                <input name="price" value = {this.state.price} onChange = {this.handleInputChange}/>
+                <input name="price" onChange = {this.handleInputChange}/>
                     <br />
                 Description
                     <br />
-                <input name="description" value = {this.state.description} onChange = {this.handleInputChange}/>
+                <input name="description" onChange = {this.handleInputChange}/>
                     <br />
                 Image URL
                     <br />
-                <input name="image" value = {this.state.image} onChange = {this.handleInputChange}/>
+                <input name="image" onChange = {this.handleInputChange}/>
                     <br />
                 Category
                     <br />
-                <input name="category" value = {this.state.category} onChange = {this.handleInputChange}/>
+                <input name="category" onChange = {this.handleInputChange}/>
                 <input type="submit" value="submit"/>
             </form>
             </div>
@@ -63,13 +57,15 @@ class AddProduct extends Component {
     }
 }
 
+//This is here in case we need it. MUST DELETE IF NOT USED BEFORE RELEASE
 // const mapStateToProps = (storeState) => {
 
 // }
 
 const mapDispatchToProps = (dispatch) => ({
-    handleSubmit() {
-        return dispatch(createProduct())
+    handleSubmit(state) {
+
+        return dispatch(createProduct(state))
     }
 })
 
