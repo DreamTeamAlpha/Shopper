@@ -34,10 +34,7 @@ export const fetchProducts = () =>
         dispatch(getProducts(res.data)))
       .catch(err => console.log(err))
 
-export const createProduct = () => 
+export const createProduct = (props) => 
   dispatch => 
-    axios.post('/api/products')
-      .then(() => axios.get('/api/products'))
-      .then(res =>
-        dispatch(getProducts(res.data)))
+    axios.post('/api/products', props)
       .catch(err => console.log(err))

@@ -1,60 +1,83 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
-import {createProduct} from '../store'
+import {createProduct, fetchProducts} from '../store'
 
 class AddProduct extends Component {
     constructor(props) {
         super(props);
 
         this.state ={
-            name: "",
-            price: 0,
-            description: "",
-            image: "",
-            category: ""
+            
         }
+        
+        this.handleInputChange = this.handleInputChange.bind(this);
+        
+}
+        
+componentDidMount(){
+    this.props.callFetchProducts()
+}
+    
+
+handleInputChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        this.setState({
+            [name] : value
+        })
+
     }
 
 
     render() {
+
         return(
             <div>
             <h1> Add a Product </h1>
-            <form>
+            <form name="addProdForm" onSubmit = {() => this.props.handleSubmit(this.state)}>
                 Product Name
-                <br />
-                <input id="prodName"></input>
-                <br />
+                    <br />
+                <input name="name"onChange = {this.handleInputChange}/>
+                    <br />
                 Price
-                <br />
-                <input id="price"></input>
-                <br />
+                    <br />
+                <input name="price" onChange = {this.handleInputChange}/>
+                    <br />
                 Description
-                <br />
-                <input id="description"></input>
-                <br />
+                    <br />
+                <input name="description" onChange = {this.handleInputChange}/>
+                    <br />
                 Image URL
-                <br />
-                <input id="image"></input>
-                <br />
+                    <br />
+                <input name="image" onChange = {this.handleInputChange}/>
+                    <br />
                 Category
-                <br />
-                <input id="category"></input>
+                    <br />
+                <input name="category" onChange = {this.handleInputChange}/>
+                <input type="submit" value="submit"/>
             </form>
             </div>
         )
     }
 }
 
+//This is here in case we need it. MUST DELETE IF NOT USED BEFORE RELEASE
 // const mapStateToProps = (storeState) => {
 
 // }
 
-const mapDispatchToProps = (dispatch) => ({
-    handleSubmit() {
-        return dispatch(createProduct())
+function mapDispatchToProps(dispatch){
+    return {
+        handleSubmit: function(state) {
+            dispatch(createProduct(state))
+    },
+        callFetchProducts: function() {
+            dispatch(fetchProducts())
+        }
     }
-})
+}
 
 const addProductWrapper =  connect(null, mapDispatchToProps)(AddProduct)
 
