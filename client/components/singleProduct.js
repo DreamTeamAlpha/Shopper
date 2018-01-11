@@ -9,8 +9,6 @@ class SingleProduct extends Component {
 
 componentDidMount(){
     this.props.loadSingleProduct();
-    console.log(this.props)
-
 }
 
     render(){
@@ -20,6 +18,7 @@ componentDidMount(){
             <h1> {this.props.product.name} </h1>
             <h3> {this.props.product.price} </h3>
             <h5> {this.props.product.description} </h5>
+            <img src = {this.props.product.image}/>
             </div>
         )
     }
