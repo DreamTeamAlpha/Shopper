@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
-import {createProduct} from '../store'
+import {createProduct, fetchProducts} from '../store'
 
 class AddProduct extends Component {
     constructor(props) {
@@ -9,10 +9,15 @@ class AddProduct extends Component {
         this.state ={
             
         }
-
+        
         this.handleInputChange = this.handleInputChange.bind(this);
-    }
-
+        
+}
+        
+componentDidMount(){
+    this.props.callFetchProducts()
+}
+    
 
 handleInputChange(event) {
         const target = event.target;
@@ -22,6 +27,7 @@ handleInputChange(event) {
         this.setState({
             [name] : value
         })
+
     }
 
 
@@ -62,12 +68,16 @@ handleInputChange(event) {
 
 // }
 
-const mapDispatchToProps = (dispatch) => ({
-    handleSubmit(state) {
-
-        return dispatch(createProduct(state))
+function mapDispatchToProps(dispatch){
+    return {
+        handleSubmit: function(state) {
+            dispatch(createProduct(state))
+    },
+        callFetchProducts: function() {
+            dispatch(fetchProducts())
+        }
     }
-})
+}
 
 const addProductWrapper =  connect(null, mapDispatchToProps)(AddProduct)
 

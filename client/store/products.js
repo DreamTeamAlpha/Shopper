@@ -37,7 +37,4 @@ export const fetchProducts = () =>
 export const createProduct = (props) => 
   dispatch => 
     axios.post('/api/products', props)
-      .then(() => axios.get('/api/products'))
-      .then(res =>
-        dispatch(getProducts(res.data)))
       .catch(err => console.log(err))
