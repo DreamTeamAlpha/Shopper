@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
 import {fetchProducts} from '../store'
+import {Link} from 'react-router-dom'
 
 class Products extends Component {
   constructor (props) {
@@ -16,10 +17,13 @@ class Products extends Component {
       <div>
        <ul>
         {this.props.products.map((product) => {
-          return <li key={product.id}>{product.name}{product.price}
-          <button name='addBtn' value={product.id} onClick={this.props.handleClick}>ADD TO CART</button>
-          </li>
-        })}
+          return <div  key={product.id}><Link to = {`products/${product.id}`} ><li>{product.name}</li></Link>
+
+          <li>{product.price}</li>
+          <li> <button onClick ={addToCart} value={product}> ADD TO CART</button> </li>
+              <br/>
+        </div>})}
+
        </ul>
       </div>
     )

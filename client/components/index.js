@@ -6,4 +6,6 @@
 export {default as Main} from './main'
 export {default as UserHome} from './user-home'
 export {default as ProductWrapper} from './products'
+export {default as addProductWrapper} from './addProduct'
+export {default as singleProductWrapper} from './singleProduct'
 export {Login, Signup} from './auth-form'

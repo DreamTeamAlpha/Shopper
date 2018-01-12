@@ -7,4 +7,4 @@ router.post('/', (req, res, next) => {
   res.send(req.session.cart);
 });
 
-export default router;
+module.exports = router;
