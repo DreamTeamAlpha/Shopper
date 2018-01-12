@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
-import {fetchProducts} from '../store'
+import {fetchProducts, addToCart} from '../store'
 import {Link} from 'react-router-dom'
 
 class Products extends Component {
@@ -20,7 +20,7 @@ class Products extends Component {
           return <div  key={product.id}><Link to = {`products/${product.id}`} ><li>{product.name}</li></Link>
 
           <li>{product.price}</li>
-          <li> <button onClick ={addToCart} value={product}> ADD TO CART</button> </li>
+          <li> <button onClick ={this.props.handleClick} value={product}> ADD TO CART</button> </li>
               <br/>
         </div>})}
 
@@ -41,7 +41,7 @@ const mapDispatchToProps = (dispatch) => ({
     return dispatch(fetchProducts())
   },
   handleClick(evt) {
-    return addToCart(evt.target.value)
+    return dispatch(addToCart(evt.target.value))
   }
 })
 
