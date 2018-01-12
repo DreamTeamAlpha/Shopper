@@ -18,9 +18,10 @@ class Products extends Component {
        <ul>
         {this.props.products.map((product) => {
           return <div  key={product.id}><Link to = {`products/${product.id}`} ><li>{product.name}</li></Link>
-          
+
           <li>{product.price}</li>
-              <br/>     
+          <li> <button onClick ={addToCart} value={product}> ADD TO CART</button> </li>
+              <br/>
         </div>})}
 
        </ul>
@@ -38,6 +39,9 @@ const mapStateToProps= (storeState) => {
 const mapDispatchToProps = (dispatch) => ({
   callFetchProducts() {
     return dispatch(fetchProducts())
+  },
+  handleClick(evt) {
+    return addToCart(evt.target.value)
   }
 })
 
