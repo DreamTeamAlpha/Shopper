@@ -30,7 +30,7 @@ class Checkout extends Component {
 
 
     render() {
-       
+
         return(
             <div>
             <h1> {this.props.user.email} </h1>
@@ -43,7 +43,7 @@ class Checkout extends Component {
             <button onClick = {() => this.props.handleSubmit(this.props.user.id, this.state.address, this.props.cart)}>CHECKOUT</button>
             </div>
         )
-    }  
+    }
 }
 
 const mapStateToProps = (storeState) => {
@@ -55,7 +55,7 @@ const mapStateToProps = (storeState) => {
 
 const mapDispatchToProps = (dispatch) => ({
     handleSubmit(user, address, cart) {
-        return dispatch(checkout(user, address, cart))
+        return checkout(user, address, cart);
     }
 })
 
