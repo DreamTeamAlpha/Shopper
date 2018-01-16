@@ -9,7 +9,6 @@ function addToCart(product, cart) {
   } else {
     cart[prodId] ++
   }
-  console.log(cart)
 }
 
 function transformToArr(cart){
