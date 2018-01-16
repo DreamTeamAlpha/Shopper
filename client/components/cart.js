@@ -17,11 +17,12 @@ class Cart extends Component {
         return(
             <div>
                 <ul>
+                    <h1> {this.props.user.email} </h1>
                     <h1> CART </h1>
                    {this.props.cart && this.props.cart.map((product) => <li key = {product.info.id}>{product.info.name} : {product.quantity}</li>)}
                 </ul>
 
-      
+            <Link to="/checkout"><button> CHECKOUT </button> </Link>
             </div>
         )
     }
@@ -29,6 +30,7 @@ class Cart extends Component {
 
 const mapStateToProps = (storeState) => {
     return{
+        user : storeState.user,
         cart : storeState.cart,
         products : storeState.products
     }
