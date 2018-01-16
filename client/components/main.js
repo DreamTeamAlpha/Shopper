@@ -17,6 +17,8 @@ const Main = (props) => {
   return (
     <div>
       <h1>PIÑATA PARTY</h1>
+
+      
       <nav id = "navbar">
         {
           isLoggedIn
