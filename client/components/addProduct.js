@@ -52,7 +52,7 @@ handleInputChange(event) {
                     <br />
                 Image URL
                     <br />
-                <input name="image" onChange = {this.handleInputChange}/>
+                <input name="imgUrl" onChange = {this.handleInputChange}/>
                     <br />
                 Category
                     <br />
@@ -64,10 +64,6 @@ handleInputChange(event) {
     }
 }
 
-//This is here in case we need it. MUST DELETE IF NOT USED BEFORE RELEASE
-// const mapStateToProps = (storeState) => {
-
-// }
 
 function mapDispatchToProps(dispatch){
     return {

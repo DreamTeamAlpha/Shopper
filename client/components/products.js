@@ -21,6 +21,7 @@ class Products extends Component {
           return <div  key={product.id}><Link to = {`products/${product.id}`} ><li>{product.name}</li></Link>
 
           <li>{product.price}</li>
+          <li><img src = {product.imgUrl}/></li>
           <li> <Button color = "blue" onClick ={() => this.props.handleClick(product.id)}> ADD TO CART</Button> </li>
               <br/>
         </div>})}
