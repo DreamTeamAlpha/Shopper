@@ -20,7 +20,7 @@ class Cart extends Component {
                 <ul>
                     <h1> {this.props.user.email} </h1>
                     <h1> CART </h1>
-                   {this.props.cart && this.props.cart.map((product) => <li key = {product.info.id}>{product.info.name} : {product.quantity}</li>)}
+                   {this.props.cart && this.props.cart.map((product) => <li key = {product.info.id} class = "cartStuff">{product.info.name} | Price: {product.info.price} | Quantity: {product.quantity}</li>)}
                 </ul>
 
             <Link to="/checkout"><Button color = "blue"> CHECKOUT </Button> </Link>

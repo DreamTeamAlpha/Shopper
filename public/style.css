@@ -40,6 +40,11 @@ display: flex;
 align-items: center
 }
 
+.cartStuff{
+  font-size: 1em;
+  font-style: bold;
+}
+
 /* #title {
   display:flex;
   align-items: center;
