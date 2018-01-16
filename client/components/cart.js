@@ -6,28 +6,22 @@ import { Link } from 'react-router-dom'
 class Cart extends Component {
     constructor(props){
         super(props)
-
-      
     }
 
     componentWillMount(){
         this.props.getCart()
     }
-    // componentDidMount(){
-    //     // this.props.getProducts()
-    // }
-    
-   
+
     render(){
-      console.log(this.props.cart)
+
         return(
             <div>
                 <ul>
-                    <li> Hi </li>
+                    <h1> CART </h1>
                    {this.props.cart && this.props.cart.map((product) => <li key = {product.info.id}>{product.info.name} : {product.quantity}</li>)}
                 </ul>
 
-                LOOK AT THIS BEAUTIFUL CART
+      
             </div>
         )
     }
