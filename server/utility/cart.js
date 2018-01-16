@@ -3,13 +3,23 @@ function initIfnoCart (session){
 }
 
 function addToCart(product, cart) {
-  if (!cart[product.id]){
-    product.quantity = 1;
-    cart[product.id] = product;
+  var prodId = Object.keys(product)[0];
+  if(!cart[prodId]) {
+    cart[prodId] = 1
   } else {
-    cart[product.id].quantity++;
+    cart[prodId] ++
   }
+  console.log(cart)
 }
+
+function transformToArr(cart){
+  let prod;
+  return Object.keys(cart).map((key) => {
+    prod = {};
+    prod.id = key;
+    prod.quantity = cart[key];
+    return prod;
+  })};
 
 function deleteFromCart(product, cart){
   delete cart[product.id];
@@ -18,5 +28,14 @@ function deleteFromCart(product, cart){
 module.exports = {
   addToCart,
   initIfnoCart,
-  deleteFromCart
+  deleteFromCart,
+  transformToArr
 };
+
+
+// if (!cart[product.id]){
+//   product.quantity = 1;
+//   cart[product.id] = product;
+// } else {
+//   cart[product.id].quantity++;
+// }
