@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {fetchProducts, addToCart, fetchCart} from '../store'
 import { Link } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 
 class Cart extends Component {
     constructor(props){
@@ -22,7 +23,7 @@ class Cart extends Component {
                    {this.props.cart && this.props.cart.map((product) => <li key = {product.info.id}>{product.info.name} : {product.quantity}</li>)}
                 </ul>
 
-            <Link to="/checkout"><button> CHECKOUT </button> </Link>
+            <Link to="/checkout"><Button color = "blue"> CHECKOUT </Button> </Link>
             </div>
         )
     }

@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  background-color: lightblue
 }
 
 a {
@@ -18,4 +19,18 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#navbar {
+  display: flex;
+  align-content: center;
+}
+
+#title {
+  display:flex;
+  text-align: center;
 }

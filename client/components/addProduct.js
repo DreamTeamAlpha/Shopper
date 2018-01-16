@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
 import {createProduct, fetchProducts} from '../store'
+import { Button } from 'semantic-ui-react'
 
 class AddProduct extends Component {
     constructor(props) {
@@ -51,22 +52,18 @@ handleInputChange(event) {
                     <br />
                 Image URL
                     <br />
-                <input name="image" onChange = {this.handleInputChange}/>
+                <input name="imgUrl" onChange = {this.handleInputChange}/>
                     <br />
                 Category
                     <br />
                 <input name="category" onChange = {this.handleInputChange}/>
-                <input type="submit" value="submit"/>
+                <Button color = "blue" type="submit" value="submit">Add Item</Button>
             </form>
             </div>
         )
     }
 }
 
-//This is here in case we need it. MUST DELETE IF NOT USED BEFORE RELEASE
-// const mapStateToProps = (storeState) => {
-
-// }
 
 function mapDispatchToProps(dispatch){
     return {

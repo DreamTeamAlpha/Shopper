@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from 'react-redux'
 import { fetchSingleProduct } from '../store/singleProduct'
 import { addToCart, fetchCart } from '../store/cart'
+import {Button} from 'semantic-ui-react'
 
 
 class SingleProduct extends Component {
@@ -21,8 +22,9 @@ componentDidMount(){
             <h1> {this.props.product.name} </h1>
             <h3> {this.props.product.price} </h3>
             <h5> {this.props.product.description} </h5>
-            <img src = {this.props.product.image}/>
-            <button onClick ={() => this.props.handleClick(this.props.product.id)}>ADD TO CART </button>
+            <img src = {this.props.product.imgUrl}/>
+            <br />
+            <Button color = "blue" onClick ={() => this.props.handleClick(this.props.product.id)}>ADD TO CART </Button>
             </div>
         )
     }
