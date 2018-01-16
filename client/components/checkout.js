@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {checkout} from '../store/cart'
 import {Link} from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 
 class Checkout extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class Checkout extends Component {
             </ul>
             Enter your address:
             <textarea name = "address" onChange = {this.handleInputChange}/>
-            <button onClick = {() => this.props.handleSubmit(this.props.user.id, this.state.address, this.props.cart)}>CHECKOUT</button>
+            <Button color = "blue" onClick = {() => this.props.handleSubmit(this.props.user.id, this.state.address, this.props.cart)}>CHECKOUT</Button>
             </div>
         )
     }

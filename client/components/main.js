@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
 import {logout} from '../store'
+import { Button } from 'semantic-ui-react'
 
 /**
  * COMPONENT
@@ -16,23 +17,23 @@ const Main = (props) => {
   return (
     <div>
       <h1>PIÑATA PARTY</h1>
-      <nav>
+      <nav id = "navbar">
         {
           isLoggedIn
             ? <div>
               {/* The navbar will show these links after you log in */}
-              <Link to="/home">Home</Link>
-              <a href="#" onClick={handleClick}>Logout</a>
-              <Link to="/products">Products</Link>
-              <Link to="/cart">Cart</Link>
+              <Link to="/home"> <Button color = "pink">Home</Button> </Link>
+              <a href="#" onClick={handleClick}> <Button color = "pink">Logout</Button> </a>
+              <Link to="/products"> <Button color = "pink">Products</Button> </Link>
+              <Link to="/cart"> <Button color = "pink">Cart</Button> </Link>
             </div>
             : <div>
               {/* The navbar will show these links before you log in */}
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
-              <Link to="/products">Products</Link>
-              <Link to="/addProduct">Add Product</Link>
-              <Link to="/cart">Cart</Link>
+              <Link to="/login"><Button color = "pink">Login</Button></Link>
+              <Link to="/signup"><Button color = "pink">Sign Up</Button></Link>
+              <Link to="/products"><Button color = "pink">Products</Button></Link>
+              <Link to="/addProduct"><Button color = "pink">Add Product</Button></Link>
+              <Link to="/cart"><Button color = "pink">Cart</Button></Link>
             </div>
         }
       </nav>

@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
 import {createProduct, fetchProducts} from '../store'
+import { Button } from 'semantic-ui-react'
 
 class AddProduct extends Component {
     constructor(props) {
@@ -56,7 +57,7 @@ handleInputChange(event) {
                 Category
                     <br />
                 <input name="category" onChange = {this.handleInputChange}/>
-                <input type="submit" value="submit"/>
+                <Button color = "blue" type="submit" value="submit">Add Item</Button>
             </form>
             </div>
         )
