@@ -11,6 +11,7 @@ export const UserHome = (props) => {
   return (
     <div>
       <h3>Welcome, {email}</h3>
+      <p> Welcome to the Piñata Party! Bespoke Piñatas for everyone! </p>
     </div>
   )
 }
