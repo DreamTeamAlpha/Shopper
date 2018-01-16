@@ -23,8 +23,6 @@ class Checkout extends Component {
             [name] : value
         })
 
-        console.log(this.state)
-
     }
 
 
