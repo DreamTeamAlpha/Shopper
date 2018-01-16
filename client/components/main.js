@@ -30,6 +30,7 @@ const Main = (props) => {
               <Link to="/signup">Sign Up</Link>
               <Link to="/products">Products</Link>
               <Link to="/addProduct">Add Product</Link>
+              <Link to="/cart">Cart</Link>
             </div>
         }
       </nav>

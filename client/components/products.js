@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
-import {fetchProducts} from '../store'
+import {fetchProducts, addToCart, fetchCart} from '../store'
 import {Link} from 'react-router-dom'
 
 class Products extends Component {
@@ -9,8 +9,8 @@ class Products extends Component {
   }
 
   componentDidMount(){
-    this.props.callFetchProducts()
-  }
+    this.props.callFetchProducts();
+}
 
   render() {
     return(
@@ -20,7 +20,7 @@ class Products extends Component {
           return <div  key={product.id}><Link to = {`products/${product.id}`} ><li>{product.name}</li></Link>
 
           <li>{product.price}</li>
-          <li> <button onClick ={addToCart} value={product}> ADD TO CART</button> </li>
+          <li> <button onClick ={() => this.props.handleClick(product.id)}> ADD TO CART</button> </li>
               <br/>
         </div>})}
 
@@ -40,8 +40,11 @@ const mapDispatchToProps = (dispatch) => ({
   callFetchProducts() {
     return dispatch(fetchProducts())
   },
-  handleClick(evt) {
-    return addToCart(evt.target.value)
+  handleClick(product) {
+    return dispatch(addToCart(product))
+  },
+  getCart() {
+    return dispatch(fetchCart())
   }
 })
 

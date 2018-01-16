@@ -2,21 +2,40 @@ function initIfnoCart (session){
   if (!session.cart) session.cart = {};
 }
 
-function addToCart(prodId, cart) {
-  let id = Object.keys(prodId)[0];
-  if (!cart[id]){
-    cart[id] = 1;
+function addToCart(product, cart) {
+  var prodId = Object.keys(product)[0];
+  if(!cart[prodId]) {
+    cart[prodId] = 1
   } else {
-    cart[id]++;
+    cart[prodId] ++
   }
+  console.log(cart)
 }
 
-function deleteFromCart(prodId, cart){
-  delete cart[prodId];
+function transformToArr(cart){
+  let prod;
+  return Object.keys(cart).map((key) => {
+    prod = {};
+    prod.id = key;
+    prod.quantity = cart[key];
+    return prod;
+  })};
+
+function deleteFromCart(product, cart){
+  delete cart[product.id];
 }
 
 module.exports = {
   addToCart,
   initIfnoCart,
-  deleteFromCart
+  deleteFromCart,
+  transformToArr
 };
+
+
+// if (!cart[product.id]){
+//   product.quantity = 1;
+//   cart[product.id] = product;
+// } else {
+//   cart[product.id].quantity++;
+// }
