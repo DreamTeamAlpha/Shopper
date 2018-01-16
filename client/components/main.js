@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
 import {logout} from '../store'
-import { Button } from 'semantic-ui-react'
+import { Button, Divider } from 'semantic-ui-react'
 
 /**
  * COMPONENT
@@ -16,10 +16,10 @@ const Main = (props) => {
 
   return (
     <div>
-      <h1>PIÑATA PARTY</h1>
+      <h1 id = "title">PIÑATA PARTY</h1>
 
-      
-      <nav id = "navbar">
+      <div id = "navbar">
+      <nav>
         {
           isLoggedIn
             ? <div>
@@ -39,7 +39,8 @@ const Main = (props) => {
             </div>
         }
       </nav>
-      <hr />
+      </div>
+      <Divider />
       {children}
     </div>
   )

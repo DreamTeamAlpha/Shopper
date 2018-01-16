@@ -24,3 +24,13 @@ form div {
 ul {
   list-style-type: none;
 }
+
+#navbar {
+  display: flex;
+  align-content: center;
+}
+
+#title {
+  display:flex;
+  text-align: center;
+}

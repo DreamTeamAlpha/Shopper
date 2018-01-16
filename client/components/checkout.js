@@ -38,7 +38,7 @@ class Checkout extends Component {
             {this.props.cart.map((product) => <li key = {product.info.id}>{product.info.name} : {product.quantity}</li>)}
             </ul>
             Enter your address:
-            <textarea name = "address" onChange = {this.handleInputChange}/>
+            <input name = "address" onChange = {this.handleInputChange}/>
             <Button color = "blue" onClick = {() => this.props.handleSubmit(this.props.user.id, this.state.address, this.props.cart)}>CHECKOUT</Button>
             </div>
         )
