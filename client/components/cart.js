@@ -1,27 +1,31 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {fetchProducts, addToCart} from '../store'
+import {fetchProducts, addToCart, fetchCart} from '../store'
 import { Link } from 'react-router-dom'
 
 class Cart extends Component {
     constructor(props){
         super(props)
+
+      
     }
 
-    componentDidMount(){
+    componentWillMount(){
         this.props.getCart()
     }
-
+    // componentDidMount(){
+    //     // this.props.getProducts()
+    // }
+    
+   
     render(){
+      console.log(this.props.cart)
         return(
             <div>
-                {/*<ul>
-                    {this.props.cart.map((product) => {
-
-                        return <li>{product.name}</li>
-
-                    })}
-                </ul>*/}
+                <ul>
+                    <li> Hi </li>
+                   {this.props.cart && this.props.cart.map((product) => <li key = {product.info.id}>{product.info.name} : {product.quantity}</li>)}
+                </ul>
 
                 LOOK AT THIS BEAUTIFUL CART
             </div>
@@ -31,13 +35,17 @@ class Cart extends Component {
 
 const mapStateToProps = (storeState) => {
     return{
-        cart : storeState.cart
+        cart : storeState.cart,
+        products : storeState.products
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
     getCart() {
         return dispatch(fetchCart())
+    },
+    getProducts() {
+        return dispatch(fetchProducts())
     }
 })
 

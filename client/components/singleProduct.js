@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import { connect } from 'react-redux'
 import { fetchSingleProduct } from '../store/singleProduct'
-import { addToCart } from '../store/cart'
+import { addToCart, fetchCart } from '../store/cart'
+
 
 class SingleProduct extends Component {
     constructor(props){
@@ -10,6 +11,7 @@ class SingleProduct extends Component {
 
 componentDidMount(){
     this.props.loadSingleProduct();
+    this.props.getCart();
 }
 
     render(){
@@ -41,7 +43,10 @@ function mapDispatchToProps(dispatch, ownProps) {
             },
         addToCart: function(evt) {
             dispatch(addToCart(evt.target.value))
-            }
+            },
+        getCart: function() {
+            dispatch(fetchCart());
+        }
         }
     }
 
