@@ -33,7 +33,7 @@ export default function (state = [], action) {
     switch(action.type) {
         case GET_CART:
             return action.cart
-        case ADD_TO_CART: 
+        case ADD_TO_CART:
             return action.cart
         default:
             return state
@@ -60,7 +60,6 @@ export const checkout = (user, address, cart) => {
     var checkoutObject = {userId: user,
                           address: address,
                           cart: cart}
-    dispatch =>
-        axios.post('/api/orders', checkoutObject)
+    axios.post('/api/orders', checkoutObject)
         .catch(err => console.log(err))
 }

@@ -22,7 +22,11 @@ function transformToArr(cart){
   })};
 
 function deleteFromCart(product, cart){
-  delete cart[product.id];
+  if (cart[product.id] > 1){
+    cart[product.id]--;
+  } else {
+    delete cart[product.id];
+  }
 }
 
 module.exports = {
