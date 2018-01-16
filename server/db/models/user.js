@@ -3,9 +3,8 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 
 const User = db.define('user', {
-  username: {
+  name: {
     type: Sequelize.STRING,
-    allowNull: false
   },
   email: {
     type: Sequelize.STRING,
@@ -17,6 +16,10 @@ const User = db.define('user', {
   },
   salt: {
     type: Sequelize.STRING
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   },
   googleId: {
     type: Sequelize.STRING

@@ -1,9 +1,11 @@
 const router = require('express').Router();
-const { addToCart, initIfnoCart, deleteFromCart } = require('../utility/cart');
+const { Product } = require('../db/models');
+const { addToCart, initIfnoCart, deleteFromCart, transformToArr } = require('../utility/cart');
 
 router.get('/', (req, res, next) => {
   initIfnoCart(req.session);
-  res.send(req.session.cart);
+
+
 });
 
 router.post('/', (req, res, next) => {

@@ -2,17 +2,17 @@ function initIfnoCart (session){
   if (!session.cart) session.cart = {};
 }
 
-function addToCart(product, cart) {
-  if (!cart[product.id]){
-    product.quantity = 1;
-    cart[product.id] = product;
+function addToCart(prodId, cart) {
+  let id = Object.keys(prodId)[0];
+  if (!cart[id]){
+    cart[id] = 1;
   } else {
-    cart[product.id].quantity++;
+    cart[id]++;
   }
 }
 
-function deleteFromCart(product, cart){
-  delete cart[product.id];
+function deleteFromCart(prodId, cart){
+  delete cart[prodId];
 }
 
 module.exports = {
