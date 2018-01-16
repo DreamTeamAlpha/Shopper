@@ -25,12 +25,22 @@ ul {
   list-style-type: none;
 }
 
-#navbar {
-  display: flex;
-  align-content: center;
-}
-
-#title {
-  display:flex;
+#bigTitle {
+  display: inline;
   text-align: center;
 }
+
+#navbar {
+  display: flex;
+ justify-content: center;
+}
+
+#navkids{
+display: flex;
+align-items: center
+}
+
+/* #title {
+  display:flex;
+  align-items: center;
+} */

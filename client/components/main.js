@@ -16,13 +16,14 @@ const Main = (props) => {
 
   return (
     <div>
-      <h1 id = "title">PIÑATA PARTY</h1>
-
+    <div id = "bigTitle">
+      <h1>PIÑATA PARTY</h1>
+    </div>
       <div id = "navbar">
       <nav>
         {
           isLoggedIn
-            ? <div>
+            ? <div id="navkids">
               {/* The navbar will show these links after you log in */}
               <Link to="/home"> <Button color = "pink">Home</Button> </Link>
               <a href="#" onClick={handleClick}> <Button color = "pink">Logout</Button> </a>
