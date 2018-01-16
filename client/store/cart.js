@@ -55,3 +55,12 @@ export const addToCart = (item) =>
     dispatch =>
         axios.post('/api/cart', item)
     .catch(err => console.log(err))
+
+export const checkout = (user, address, cart) => {
+    var checkoutObject = {userId: user,
+                          address: address,
+                          cart: cart}
+    dispatch =>
+        axios.post('/api/orders', checkoutObject)
+        .catch(err => console.log(err))
+}
