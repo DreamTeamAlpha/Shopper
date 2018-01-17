@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {fetchProducts, addToCart, fetchCart} from '../store'
+import {fetchProducts, fetchCart, removeFromCart} from '../store'
 import { Link } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+import { Button, Header, Grid, Image, Icon} from 'semantic-ui-react'
 
 class Cart extends Component {
     constructor(props){
@@ -14,16 +14,30 @@ class Cart extends Component {
     }
 
     render(){
-
+        let {cart, handleClick} = this.props;
         return(
             <div>
-                <ul>
-                    <h1> {this.props.user.email} </h1>
-                    <h1> CART </h1>
-                   {this.props.cart && this.props.cart.map((product) => <li key = {product.info.id} class = "cartStuff">{product.info.name} | Price: {product.info.price} | Quantity: {product.quantity}</li>)}
-                </ul>
-
-            <Link to="/checkout"><Button color = "blue"> CHECKOUT </Button> </Link>
+              <Grid celled id="order">
+                <Grid.Row className="container">
+                  <Header size="huge"> CART</Header>
+                </Grid.Row>
+              {cart.length && cart.map((prod) => {
+                return (
+                  <Grid.Row key={prod.info.id}>
+                    <Grid.Column width={3} height={2}>
+                      <Image src={prod.info.imgUrl}/>
+                    </Grid.Column>
+                    <Grid.Column id="order-prod-info" width={11}>
+                      <Link to = {`products/${prod.info.id}`} >{prod.info.name}</Link><span>{` x ${prod.quantity}`}</span>
+                      <br/> <br/>
+                      <span>${prod.info.price}</span>
+                      <Icon name="trash" color="red" size="big" link={true} onClick={() => { handleClick(prod.info.id)}} id="removeFromCart"/>
+                    </Grid.Column>
+                  </Grid.Row>
+                )
+              })}
+            </Grid>
+              {cart.length && <Link to="/checkout"><Button color = "blue" id="checkout"> CHECKOUT </Button> </Link>}
             </div>
         )
     }
@@ -37,12 +51,15 @@ const mapStateToProps = (storeState) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
     getCart() {
         return dispatch(fetchCart())
     },
     getProducts() {
         return dispatch(fetchProducts())
+    },
+    handleClick(prodId){
+      dispatch(removeFromCart(prodId));
     }
 })
 

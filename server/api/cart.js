@@ -35,7 +35,7 @@ router.post('/', (req, res, next) => {
 
 router.delete('/', (req, res, next) => {
   initIfnoCart(req.session);
-  deleteFromCart(req.body, req.session.cart);
+  deleteFromCart(req.query.id, req.session.cart);
   res.send(req.session.cart);
 });
 

@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = new Sequelize(
-  process.env.DATABASE_URL || 'postgres://localhost:5432/pinata', {
+  process.env.DATABASE_URL || 'postgres://localhost:5432/piniata', {
     logging: false
   }
-)
-module.exports = db
+);
+module.exports = db;

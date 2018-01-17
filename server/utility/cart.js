@@ -20,11 +20,9 @@ function transformToArr(cart){
     return prod;
   })};
 
-function deleteFromCart(product, cart){
-  if (cart[product.id] > 1){
-    cart[product.id]--;
-  } else {
-    delete cart[product.id];
+function deleteFromCart(id, cart){
+  if (cart[id]){
+    delete cart[id];
   }
 }
 
