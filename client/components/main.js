@@ -13,11 +13,10 @@ import { Button, Divider } from 'semantic-ui-react'
  */
 const Main = (props) => {
   const {children, handleClick, isLoggedIn, user} = props
-  console.log(user.isAdmin);
   return (
     <div>
     <div id = "bigTitle">
-      <h1>PIÑATA PARTY</h1>
+      <h1>PIÑIATA PARTY</h1>
     </div>
       <div id = "navbar">
       <nav>
