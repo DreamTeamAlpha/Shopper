@@ -8,7 +8,7 @@ const DisplayProducts = function(props){
     <div className="products">
       {props.products.map((prod) => {
         return(
-         <Card>
+         <Card key={prod.id}>
           <Image src={prod.imgUrl} />
           <Card.Content>
             <Card.Header>{prod.name}</Card.Header>
