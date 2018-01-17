@@ -1,6 +1,6 @@
-const router = require('express').Router()
-const {User} = require('../db/models')
-module.exports = router
+const router = require('express').Router();
+const {User, Order, Product } = require('../db/models');
+module.exports = router;
 
 router.get('/', (req, res, next) => {
   User.findAll({
@@ -24,6 +24,18 @@ router.get('/:id', (req, res, next) => {
     res.json(user);
   })
   .catch(next);
+});
+
+router.get('/:id/orders', (req, res, next) => {
+  Order.findAll({
+    where: {
+      userId: req.params.id,
+    },
+    include: [{all: true}]
+  })
+  .then((orders) => {
+    res.json(orders);
+  });
 });
 
 router.post('/', (req, res, next) => {
