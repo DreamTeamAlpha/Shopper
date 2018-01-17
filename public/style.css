@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  background-color: lightblue
 }
 
 a {
@@ -19,3 +20,32 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+ul {
+  list-style-type: none;
+}
+
+#bigTitle {
+  display: inline;
+  text-align: center;
+}
+
+#navbar {
+  display: flex;
+ justify-content: center;
+}
+
+#navkids{
+display: flex;
+align-items: center
+}
+
+.cartStuff{
+  font-size: 1em;
+  font-style: bold;
+}
+
+/* #title {
+  display:flex;
+  align-items: center;
+} */

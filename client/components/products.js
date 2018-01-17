@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import {connect} from 'react-redux'
 import {fetchProducts, addToCart, fetchCart} from '../store'
 import {Link} from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 
 class Products extends Component {
   constructor (props) {
@@ -20,7 +21,8 @@ class Products extends Component {
           return <div  key={product.id}><Link to = {`products/${product.id}`} ><li>{product.name}</li></Link>
 
           <li>{product.price}</li>
-          <li> <button onClick ={() => this.props.handleClick(product.id)}> ADD TO CART</button> </li>
+          <li><img src = {product.imgUrl}/></li>
+          <li> <Button color = "blue" onClick ={() => this.props.handleClick(product.id)}> ADD TO CART</Button> </li>
               <br/>
         </div>})}
 
