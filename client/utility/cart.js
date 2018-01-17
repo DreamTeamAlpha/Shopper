@@ -4,9 +4,13 @@ function addToCart(product) {
   axios.post('/api/cart', product)
   .catch(err => console.log(err));
 }
-
+function removeFromCart(prodId) {
+  axios.delete('/api/cart', prodId)
+  .catch(err => console.log(err));
+}
 module.exports = {
-  addToCart
+  addToCart,
+  removeFromCart
 };
 // function removeFromCart() {
 

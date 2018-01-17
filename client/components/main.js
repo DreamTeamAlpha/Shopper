@@ -12,8 +12,8 @@ import { Button, Divider } from 'semantic-ui-react'
  *  rendered out by the component's `children`.
  */
 const Main = (props) => {
-  const {children, handleClick, isLoggedIn} = props
-
+  const {children, handleClick, isLoggedIn, user} = props
+  console.log(user.isAdmin);
   return (
     <div>
     <div id = "bigTitle">
@@ -52,7 +52,8 @@ const Main = (props) => {
  */
 const mapState = (state) => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    user: state.user
   }
 }
 

@@ -16,6 +16,7 @@ router.post('/', (req, res, next) => {
     });
 
     OrderProduct.bulkCreate(prodList);
+    req.session.cart = {};
     res.sendStatus(201);
   })
   .catch(next);

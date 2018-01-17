@@ -52,9 +52,9 @@ const mapStateToProps = (storeState) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownprops) => ({
     handleSubmit(user, address, cart) {
-        return checkout(user, address, cart);
+        return checkout(user, address, cart, ownprops.history);
     }
 })
 

@@ -6,6 +6,7 @@ ACTION TYPES
 
 const GET_CART = 'GET_CART'
 const ADD_TO_CART = 'ADD_TO_CART'
+const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 
 
@@ -23,6 +24,10 @@ const addItemToCart = cart => ({
     cart
 })
 
+const deleteFromCart = removedId => ({
+  type: REMOVE_FROM_CART,
+  removedId
+})
 
 
 /*
@@ -35,6 +40,8 @@ export default function (state = [], action) {
             return action.cart
         case ADD_TO_CART:
             return action.cart
+        case REMOVE_FROM_CART:
+            return state.filter((prod) => prod.info.id !== action.removedId);
         default:
             return state
     }
@@ -56,10 +63,24 @@ export const addToCart = (item) =>
         axios.post('/api/cart', item)
     .catch(err => console.log(err))
 
-export const checkout = (user, address, cart) => {
+export const removeFromCart = function (prodId) {
+    return function(dispatch){
+      axios.delete('/api/cart', {params: {id: prodId}})
+      .then(() => {
+        dispatch(deleteFromCart(prodId));
+      })
+      .catch(err => console.log(err));
+    }
+}
+
+export const checkout = (user, address, cart, history) => {
     var checkoutObject = {userId: user,
                           address: address,
                           cart: cart}
-    axios.post('/api/orders', checkoutObject)
-        .catch(err => console.log(err))
+    if (user){
+      axios.post('/api/orders', checkoutObject)
+          .catch(err => console.log(err))
+    } else {
+      history.push('/purchase-complete');
+    }
 }

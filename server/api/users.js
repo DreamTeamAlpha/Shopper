@@ -27,6 +27,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.get('/:id/orders', (req, res, next) => {
+  //console.log(req.params.id);
   Order.findAll({
     where: {
       userId: req.params.id,
