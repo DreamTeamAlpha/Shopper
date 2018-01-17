@@ -16,7 +16,7 @@ const Main = (props) => {
   return (
     <div>
     <div id = "bigTitle">
-      <h1>PIÑIATA PARTY</h1>
+      <h1>PIÑATA PARTY</h1>
     </div>
       <div id = "navbar">
       <nav>

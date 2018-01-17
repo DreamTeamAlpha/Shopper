@@ -15,7 +15,7 @@ const DisplayProducts = function(props){
             <Card.Meta>{'$' + prod.price}</Card.Meta>
             <Card.Description>{prod.description}</Card.Description>
           </Card.Content>
-          <li> <Button color = "blue" onClick ={() => props.handleClick(product.id)}> ADD TO CART</Button> </li>
+          <li> <Button color = "blue" onClick ={() => props.handleClick(prod.id)}> ADD TO CART</Button> </li>
         </Card>
         );
       })}
